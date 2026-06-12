@@ -157,13 +157,13 @@ public class CartService {
         dto.setSubtotal(item.getUnitPrice().multiply(BigDecimal.valueOf(item.getQuantity())));
 
         // Ảnh sản phẩm
-        if (item.getProduct().getImages() != null && !item.getProduct().getImages().isEmpty()) {
-            item.getProduct().getImages().stream()
+        if (item.getProduct().getProductImages() != null && !item.getProduct().getProductImages().isEmpty()) {
+            item.getProduct().getProductImages().stream()
                     .filter(img -> Boolean.TRUE.equals(img.getIsDefault()))
                     .findFirst()
                     .ifPresentOrElse(
                             img -> dto.setProductImageUrl(img.getImageUrl()),
-                            () -> dto.setProductImageUrl(item.getProduct().getImages().get(0).getImageUrl())
+                            () -> dto.setProductImageUrl(item.getProduct().getProductImages().get(0).getImageUrl())
                     );
         }
 

@@ -56,13 +56,13 @@ public class HomeService {
         dto.setOriginalPrice(product.getOriginalPrice());
 
         // Lấy ảnh mặc định (nếu có)
-        if (product.getImages() != null && !product.getImages().isEmpty()) {
-            product.getImages().stream()
+        if (product.getProductImages() != null && !product.getProductImages().isEmpty()) {
+            product.getProductImages().stream()
                     .filter(img -> Boolean.TRUE.equals(img.getIsDefault()))
                     .findFirst()
                     .ifPresentOrElse(
                             img -> dto.setImageUrl(img.getImageUrl()),
-                            () -> dto.setImageUrl(product.getImages().get(0).getImageUrl()) // lấy ảnh đầu tiên nếu không có default
+                            () -> dto.setImageUrl(product.getProductImages().get(0).getImageUrl()) // lấy ảnh đầu tiên nếu không có default
                     );
         }
 
