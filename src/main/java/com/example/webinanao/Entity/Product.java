@@ -78,9 +78,7 @@ public class Product {
     @JsonIgnore
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToMany(mappedBy = "product")
 
-    private List<ProductImage> images = new ArrayList<>();
 
     // 👉 THÊM QUAN HỆ VỚI PRODUCT_IMAGE
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
