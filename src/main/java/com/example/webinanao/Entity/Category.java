@@ -1,5 +1,6 @@
 package com.example.webinanao.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Category {
 
     @Id
@@ -41,5 +43,6 @@ public class Category {
     private Boolean isActive;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Product> products = new ArrayList<>();
 }

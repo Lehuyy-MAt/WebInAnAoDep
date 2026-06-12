@@ -1,5 +1,6 @@
 package com.example.webinanao.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -62,18 +63,23 @@ public class Product {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<Design> designs = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<CartItem> cartItems = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
+
     private List<ProductImage> images = new ArrayList<>();
 
     // 👉 THÊM QUAN HỆ VỚI PRODUCT_IMAGE
