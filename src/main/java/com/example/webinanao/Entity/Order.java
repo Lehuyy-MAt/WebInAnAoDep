@@ -65,16 +65,16 @@ public class Order {
     @Column(name = "payment_method")
     private String paymentMethod;
 
-    @Column(name = "Note")
+    @Column(name = "note")
     private String note;
 
-    @Column(name = "created-at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "confirmed_at")
     private LocalDateTime confirmedAt;
 
-    @Column(name = "Delivered_at")
+    @Column(name = "delivered_at")
     private LocalDateTime deliveredAt;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

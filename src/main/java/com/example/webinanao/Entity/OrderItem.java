@@ -51,7 +51,7 @@ public class OrderItem {
     @Column(name = "subtotal")
     private BigDecimal subtotal;
 
-    @Column(name = "print_fileUrl")
+    @Column(name = "print_file_url")
     private String printFileUrl;
 
     @Column(name = "note")

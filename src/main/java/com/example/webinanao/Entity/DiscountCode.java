@@ -54,6 +54,6 @@ public class DiscountCode {
     @Column(name = "is_active")
     private Boolean isActive;
 
-    @OneToMany(mappedBy = "discount_code")
+    @OneToMany(mappedBy = "discountCode")
     private List<Order> orders = new ArrayList<>();
 }

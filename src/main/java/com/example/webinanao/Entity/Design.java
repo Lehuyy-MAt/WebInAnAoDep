@@ -31,7 +31,7 @@ public class Design {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(name = "Design_name")
+    @Column(name = "design_name")
     private String designName;
 
     @Column(name = "preview_url")
