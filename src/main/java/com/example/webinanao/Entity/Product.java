@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,44 +21,44 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "CategoryId")
+    @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(name = "Name",columnDefinition = "nvarchar(255)")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "Description", columnDefinition = "nvarchar(max)")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "Material")
+    @Column(name = "material")
     private String material;
 
-    @Column(name = "BasePrice")
+    @Column(name = "base_price")
     private BigDecimal basePrice;
 
-    @Column(name = "OriginalPrice")
+    @Column(name = "original_price")
     private BigDecimal originalPrice;
 
-    @Column(name = "AvailableSizes")
+    @Column(name = "available_sizes")
     private String availableSizes;
 
-    @Column(name = "AvailableColors")
+    @Column(name = "available_colors")
     private String availableColors;
 
-    @Column(name = "StockQuantity")
+    @Column(name = "stock_quantity")
     private Integer stockQuantity;
 
-    @Column(name = "IsActive")
+    @Column(name = "is_active")
     private Boolean isActive = true;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "UpdatedAt")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "product")

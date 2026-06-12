@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,38 +20,38 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "FullName")
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "Email", unique = true)
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "PasswordHash")
+    @Column(name = "password_hash")
     private String passwordHash;
 
-    @Column(name = "PhoneNumber")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "Address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "AvatarUrl")
+    @Column(name = "avatar_url")
     private String avatarUrl;
 
-    @Column(name = "IsActive")
+    @Column(name = "is_active")
     private Boolean isActive;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "UpdatedAt")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "RoleId")
+    @JoinColumn(name = "role_id")
     private Role role;
 
     @OneToMany(mappedBy = "user")

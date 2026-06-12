@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Categories")
+@Table(name = "categories")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,25 +19,25 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "Slug")
+    @Column(name = "slug")
     private String slug;
 
-    @Column(name = "ImageUrl")
+    @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name = "SortOrder")
+    @Column(name = "sort_order")
     private Integer sortOrder;
 
-    @Column(name = "IsActive")
+    @Column(name = "is_active")
     private Boolean isActive;
 
     @OneToMany(mappedBy = "category")

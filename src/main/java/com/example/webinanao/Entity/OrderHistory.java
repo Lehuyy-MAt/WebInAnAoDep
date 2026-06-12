@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "OrderHistories")
+@Table(name = "order_histories")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,23 +17,23 @@ public class OrderHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "OrderId", nullable = false)
+    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column(name = "Status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name = "Note")
+    @Column(name = "note")
     private String note;
 
-    @Column(name = "UpdatedBy")
+    @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @PrePersist

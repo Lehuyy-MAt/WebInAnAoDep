@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Roles")
+@Table(name = "roles")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,16 +19,16 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "IsActive")
+    @Column(name = "is_active")
     private Boolean isActive;
 
     @OneToMany(mappedBy = "role")

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "DiscountCodes")
+@Table(name = "discount_codes")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,39 +21,39 @@ public class DiscountCode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "Code", unique = true)
+    @Column(name = "code", unique = true)
     private String code;
 
-    @Column(name = "DiscountType")
+    @Column(name = "discount_type")
     private String discountType;
 
-    @Column(name = "DiscountValue")
+    @Column(name = "discount_value")
     private BigDecimal discountValue;
 
-    @Column(name = "MinOrderAmount")
+    @Column(name = "min_order_amount")
     private BigDecimal minOrderAmount;
 
-    @Column(name = "MaxDiscount")
+    @Column(name = "max_discount")
     private BigDecimal maxDiscount;
 
-    @Column(name = "UsageLimit")
+    @Column(name = "usage_limit")
     private Integer usageLimit;
 
-    @Column(name = "UsedCount")
+    @Column(name = "used_count")
     private Integer usedCount;
 
-    @Column(name = "StartDate")
+    @Column(name = "start_date")
     private LocalDateTime startDate;
 
-    @Column(name = "EndDate")
+    @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    @Column(name = "IsActive")
+    @Column(name = "is_active")
     private Boolean isActive;
 
-    @OneToMany(mappedBy = "discountCode")
+    @OneToMany(mappedBy = "discount_code")
     private List<Order> orders = new ArrayList<>();
 }

@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Notifications")
+@Table(name = "notifications")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,28 +18,28 @@ public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "Title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "Message")
+    @Column(name = "message")
     private String message;
 
-    @Column(name = "Type")
+    @Column(name = "type")
     private String type;
 
-    @Column(name = "Link")
+    @Column(name = "link")
     private String link;
 
-    @Column(name = "IsRead")
+    @Column(name = "is_read")
     private Boolean isRead;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 }

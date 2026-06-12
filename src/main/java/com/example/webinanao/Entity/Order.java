@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Orders")
+@Table(name = "orders")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,60 +21,60 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "DiscountCodeId")
+    @JoinColumn(name = "discount_code_id")
     private DiscountCode discountCode;
 
-    @Column(name = "OrderNumber")
+    @Column(name = "order_number")
     private String orderNumber;
 
-    @Column(name = "ReceiverName")
+    @Column(name = "receiver_name")
     private String receiverName;
 
-    @Column(name = "ReceiverPhone")
+    @Column(name = "receiver_phone")
     private String receiverPhone;
 
-    @Column(name = "ShippingAddress")
+    @Column(name = "shipping_address")
     private String shippingAddress;
 
-    @Column(name = "City")
+    @Column(name = "city")
     private String city;
 
-    @Column(name = "Subtotal")
+    @Column(name = "subtotal")
     private BigDecimal subtotal;
 
-    @Column(name = "ShippingFee")
+    @Column(name = "shipping_fee")
     private BigDecimal shippingFee;
 
-    @Column(name = "DiscountAmount")
+    @Column(name = "discount_amount")
     private BigDecimal discountAmount;
 
-    @Column(name = "TotalAmount")
+    @Column(name = "total_amount")
     private BigDecimal totalAmount;
 
-    @Column(name = "Status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name = "PaymentMethod")
+    @Column(name = "payment_method")
     private String paymentMethod;
 
     @Column(name = "Note")
     private String note;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created-at")
     private LocalDateTime createdAt;
 
-    @Column(name = "ConfirmedAt")
+    @Column(name = "confirmed_at")
     private LocalDateTime confirmedAt;
 
-    @Column(name = "DeliveredAt")
+    @Column(name = "Delivered_at")
     private LocalDateTime deliveredAt;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

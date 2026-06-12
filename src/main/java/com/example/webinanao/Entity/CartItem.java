@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "CartItems")
+@Table(name = "cartItems")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,33 +19,33 @@ public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "CartId")
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
     @ManyToOne
-    @JoinColumn(name = "ProductId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "DesignId")
+    @JoinColumn(name = "design_id")
     private Design design;
 
-    @Column(name = "Size")
+    @Column(name = "size")
     private String size;
 
-    @Column(name = "Color")
+    @Column(name = "color")
     private String color;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "UnitPrice")
+    @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
-    @Column(name = "AddedAt")
+    @Column(name = "added_at")
     private LocalDateTime addedAt;
 }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "ProductImages")
+@Table(name = "product_images")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,25 +16,25 @@ public class ProductImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "ProductId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(name = "ImageUrl")
+    @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name = "ImageType")
+    @Column(name = "image_type")
     private String imageType;
 
-    @Column(name = "Color")
+    @Column(name = "color")
     private String color;
 
-    @Column(name = "SortOrder")
+    @Column(name = "sort_order")
     private Integer sortOrder;
 
-    @Column(name = "IsDefault")
+    @Column(name = "is_default")
     private Boolean isDefault;
 }

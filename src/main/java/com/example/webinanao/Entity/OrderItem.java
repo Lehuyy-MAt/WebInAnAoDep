@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "OrderItems")
+@Table(name = "order_items")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,42 +18,42 @@ public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "OrderId", nullable = false)  // 👈 THÊM nullable = false
+    @JoinColumn(name = "order_id", nullable = false)  // 👈 THÊM nullable = false
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "ProductId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "DesignId")
+    @JoinColumn(name = "design_id")
     private Design design;
 
-    @Column(name = "ProductName")
+    @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "Size")
+    @Column(name = "size")
     private String size;
 
-    @Column(name = "Color")
+    @Column(name = "color")
     private String color;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "UnitPrice")
+    @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
-    @Column(name = "Subtotal")
+    @Column(name = "subtotal")
     private BigDecimal subtotal;
 
-    @Column(name = "PrintFileUrl")
+    @Column(name = "print_fileUrl")
     private String printFileUrl;
 
-    @Column(name = "Note")
+    @Column(name = "note")
     private String note;
 }

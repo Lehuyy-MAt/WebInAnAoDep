@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Reviews")
+@Table(name = "reviews")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,36 +18,36 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "ProductId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "OrderId")
+    @JoinColumn(name = "order_id")
     private Order order;
 
-    @Column(name = "Rating")
+    @Column(name = "rating")
     private Byte rating;
 
-    @Column(name = "Title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "Comment", length = 1000)
+    @Column(name = "comment", length = 1000)
     private String comment;
 
-    @Column(name = "ImageUrls", columnDefinition = "nvarchar(max)")
+    @Column(name = "image_urls")
     private String imageUrls;
 
-    @Column(name = "IsApproved")
+    @Column(name = "is_approved")
     private Boolean isApproved;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 }

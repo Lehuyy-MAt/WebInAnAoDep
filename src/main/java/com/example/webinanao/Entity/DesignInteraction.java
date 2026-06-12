@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "DesignInteractions")
+@Table(name = "design_interactions")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,20 +18,20 @@ public class DesignInteraction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "DesignId")
+    @JoinColumn(name = "design_id")
     private Design design;
 
-    @Column(name = "ActionType")
+    @Column(name = "action_type")
     private String actionType;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 }

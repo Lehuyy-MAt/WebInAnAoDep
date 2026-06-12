@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Payments")
+@Table(name = "payments")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,31 +19,31 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "OrderId")
+    @JoinColumn(name = "order_id")
     private Order order;
 
-    @Column(name = "TransactionId")
+    @Column(name = "transaction_id")
     private String transactionId;
 
-    @Column(name = "Amount")
+    @Column(name = "amount")
     private BigDecimal amount;
 
-    @Column(name = "PaymentMethod")
+    @Column(name = "payment_method")
     private String paymentMethod;
 
-    @Column(name = "Status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name = "ResponseData", columnDefinition = "nvarchar(max)")
+    @Column(name = "response_data")
     private String responseData;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "UpdatedAt")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 }

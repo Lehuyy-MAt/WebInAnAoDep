@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Designs")
+@Table(name = "designs")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,45 +20,45 @@ public class Design {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "ProductId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(name = "DesignName")
+    @Column(name = "Design_name")
     private String designName;
 
-    @Column(name = "PreviewUrl")
+    @Column(name = "preview_url")
     private String previewUrl;
 
-    @Column(name = "DesignData", columnDefinition = "nvarchar(max)")
+    @Column(name = "design_data")
     private String designData;
 
-    @Column(name = "Size")
+    @Column(name = "size")
     private String size;
 
-    @Column(name = "Color")
+    @Column(name = "color")
     private String color;
 
-    @Column(name = "IsPublic")
+    @Column(name = "is_public")
     private Boolean isPublic;
 
-    @Column(name = "LikeCount")
+    @Column(name = "like_count")
     private Integer likeCount;
 
-    @Column(name = "ViewCount")
+    @Column(name = "view_count")
     private Integer viewCount;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "UpdatedAt")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "design")
