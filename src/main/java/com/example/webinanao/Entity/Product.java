@@ -83,7 +83,6 @@ public class Product {
 
     // 👉 THÊM QUAN HỆ VỚI PRODUCT_IMAGE
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("product")
     private List<ProductImage> productImages = new ArrayList<>();
 
     // Helper method để thêm ảnh
