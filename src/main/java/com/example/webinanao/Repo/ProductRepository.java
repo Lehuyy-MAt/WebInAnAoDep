@@ -27,7 +27,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
         SELECT p FROM Product p
         WHERE p.isActive = true
           AND (:categoryId IS NULL OR p.category.id = :categoryId)
-          AND (:keyword  IS NULL OR LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')))
+          AND (:keyword  IS NULL OR p.name ILIKE %:keyword%)
           AND (:minPrice IS NULL OR p.basePrice >= :minPrice)
           AND (:maxPrice IS NULL OR p.basePrice <= :maxPrice)
     """)
@@ -41,10 +41,13 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     // Admin: phân trang toàn bộ (kể cả inactive)
     @Query("""
-        SELECT p FROM Product p
-        WHERE (:keyword IS NULL OR LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')))
-          AND (:isActive IS NULL OR p.isActive = :isActive)
-    """)
+    SELECT p FROM Product p
+    WHERE (
+        :keyword IS NULL
+        OR p.name ILIKE %:keyword%
+    )
+    AND (:isActive IS NULL OR p.isActive = :isActive)
+""")
     Page<Product> findAllForAdmin(
             @Param("keyword")  String keyword,
             @Param("isActive") Boolean isActive,
