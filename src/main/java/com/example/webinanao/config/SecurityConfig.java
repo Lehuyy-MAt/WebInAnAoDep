@@ -90,7 +90,9 @@ public class SecurityConfig {
         config.setAllowedOriginPatterns(List.of(
                 "http://localhost:5173",
                 "https://web-in-an-ao-dep-fe-w6d6.vercel.app",
-                "https://web-in-an-ao-dep-fe-w6d6-*.vercel.app"
+                "https://web-in-an-ao-dep-fe-w6d6-*.vercel.app",
+                "https://indauan.io.vn",      // ĐÃ THÊM: Tên miền chính thức của Frontend React
+                "https://www.indauan.io.vn"
         ));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
