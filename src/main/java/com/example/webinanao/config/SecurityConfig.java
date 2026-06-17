@@ -31,10 +31,11 @@ public class SecurityConfig {
     private final RestAuthenticationEntryPoint entryPoint;
 
     private static final String[] URL_WHITELIST = {
+            "/",                     // Mở khóa đường dẫn gốc để trình duyệt không báo 401 khi gõ domain
             "/api/auth/**",
-            "/api/categories",
+            "/api/home",             // Thêm API trang chủ vào whitelist
+            "/api/categories/public/**", // Đổi cấu hình categories công khai (xem ở dưới)
             "/api/products/public/**",
-            "/api/categories/public/**",
             "/api/designs/public/**",
             "/api/products/search",
             "/api/products/{id}",
@@ -60,8 +61,15 @@ public class SecurityConfig {
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(URL_WHITELIST).permitAll()
+
+                        // Cấu hình cụ thể cho Categories bảo mật:
+                        // Cho phép GET (xem) công khai, nhưng POST, PUT, DELETE thì phải là ADMIN hoặc STAFF
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/categories").permitAll()
+                        .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/categories").hasAnyRole("ADMIN", "STAFF")
+                        .requestMatchers(org.springframework.http.HttpMethod.PUT, "/api/categories/**").hasAnyRole("ADMIN", "STAFF")
+                        .requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/categories/**").hasRole("ADMIN")
+
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        // ĐÃ XÓA dòng /api/staff/**
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(tokenAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
