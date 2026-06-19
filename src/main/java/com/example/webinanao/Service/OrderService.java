@@ -60,7 +60,15 @@ public class OrderService {
         order.setCity(request.getCity());
         order.setPaymentMethod(request.getPaymentMethod());
         order.setNote(request.getNote());
-        order.setShippingFee(BigDecimal.valueOf(30000));
+        
+        BigDecimal shippingFee = BigDecimal.valueOf(20000);
+        if ("Nhận tại cửa hàng".equalsIgnoreCase(request.getShippingAddress())) {
+            shippingFee = BigDecimal.ZERO;
+        } else if (isHanoi(request.getCity())) {
+            shippingFee = BigDecimal.ZERO;
+        }
+        order.setShippingFee(shippingFee);
+        
         order.setStatus("pending");
         order.setCreatedAt(LocalDateTime.now());
         order.setSubtotal(BigDecimal.ZERO);
@@ -259,5 +267,18 @@ public class OrderService {
         }
 
         return dto;
+    }
+
+    private boolean isHanoi(String city) {
+        if (city == null) {
+            return false;
+        }
+        String normalized = java.text.Normalizer.normalize(city, java.text.Normalizer.Form.NFD);
+        String noAccents = normalized.replaceAll("\\p{M}", "");
+        String cleaned = noAccents.toLowerCase()
+                .replace("đ", "d")
+                .replace("Đ", "d")
+                .trim();
+        return cleaned.contains("ha noi") || cleaned.contains("hanoi");
     }
 }
